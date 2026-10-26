@@ -2,6 +2,8 @@
 
 Chrome Extension (Manifest V3) that categorizes posts on [x.com](https://x.com) as you scroll your feed, powered by [TypeSafe's](https://typesafe.ai) System One decision model (Jev).
 
+https://github.com/user-attachments/assets/7d6fa6d4-3b94-4454-a312-5d9b7f8e86bf
+
 ---
 
 ## Features

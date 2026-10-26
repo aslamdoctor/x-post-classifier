@@ -45,6 +45,10 @@ export function mountBadge(doc, tweetElement, classification, tweetId) {
     return null;
   }
 
+  if (classification?.category) {
+    tweetElement.setAttribute("data-typesafe-category", classification.category);
+  }
+
   const mountTarget = tweetElement.querySelector?.('[data-testid="User-Name"]') ||
                       tweetElement.querySelector?.('[data-testid="tweetText"]') ||
                       tweetElement;

@@ -1,17 +1,25 @@
 import { extractTweetData } from "./dom-extractor.js";
 import { mountBadge } from "./badge-renderer.js";
 import { TweetDwellObserver } from "./scroll-observer.js";
+import { initDimManager } from "./dim-manager.js";
 
 /**
  * Initializes X.com post classification tracking.
  *
  * @param {Document} doc
  * @param {object} runtime Chrome runtime API (chrome.runtime)
+ * @param {object} storage Chrome storage API (chrome.storage)
  */
-function initXClassifier(doc = document, runtime = (typeof chrome !== "undefined" ? chrome.runtime : null)) {
+function initXClassifier(
+  doc = document,
+  runtime = (typeof chrome !== "undefined" ? chrome.runtime : null),
+  storage = (typeof chrome !== "undefined" ? chrome.storage : null)
+) {
   if (!doc || !runtime) {
     return null;
   }
+
+  const dimManager = initDimManager(doc, storage);
 
   console.log("[TypeSafe X] Post classifier initialized on x.com");
 
@@ -120,9 +128,11 @@ function initXClassifier(doc = document, runtime = (typeof chrome !== "undefined
   return {
     dwellObserver,
     mutationObserver,
+    dimManager,
     disconnect: () => {
       dwellObserver.disconnect();
       mutationObserver.disconnect();
+      dimManager.disconnect();
     }
   };
 }

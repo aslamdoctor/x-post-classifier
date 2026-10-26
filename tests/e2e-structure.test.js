@@ -13,14 +13,19 @@ describe("E2E Extension Structure & Bundle Verification", () => {
     expect(fs.existsSync(path.join(root, "icons/icon16.png"))).toBe(true);
     expect(fs.existsSync(path.join(root, "icons/icon48.png"))).toBe(true);
     expect(fs.existsSync(path.join(root, "icons/icon128.png"))).toBe(true);
+    expect(fs.existsSync(path.join(root, "popup/popup.html"))).toBe(true);
+    expect(fs.existsSync(path.join(root, "popup/popup.css"))).toBe(true);
+    expect(fs.existsSync(path.join(root, "popup/popup.js"))).toBe(true);
   });
 
-  test("Manifest matches content script files", () => {
+  test("Manifest matches content script files and action configuration", () => {
     const manifest = JSON.parse(fs.readFileSync(path.join(root, "manifest.json"), "utf-8"));
     expect(manifest.manifest_version).toBe(3);
     expect(manifest.content_scripts[0].js).toContain("content/content.js");
     expect(manifest.content_scripts[0].css).toContain("content/badge.css");
     expect(manifest.permissions).toContain("storage");
+    expect(manifest.action).toBeDefined();
+    expect(manifest.action.default_popup).toBe("popup/popup.html");
   });
 
   test("content/content.js contains no top-level export statements", () => {

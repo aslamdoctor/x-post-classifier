@@ -58,3 +58,27 @@
   color: #71767b;
   border-color: transparent;
 }
+
+/* Post Dimming Styles */
+article[data-testid="tweet"][data-typesafe-category] {
+  transition: opacity 0.2s ease;
+}
+
+html.typesafe-dim-insight_tutorial article[data-testid="tweet"][data-typesafe-category="insight_tutorial"],
+html.typesafe-dim-news_update article[data-testid="tweet"][data-typesafe-category="news_update"],
+html.typesafe-dim-engagement_bait article[data-testid="tweet"][data-typesafe-category="engagement_bait"],
+html.typesafe-dim-promo_sales article[data-testid="tweet"][data-typesafe-category="promo_sales"],
+html.typesafe-dim-meme_humor article[data-testid="tweet"][data-typesafe-category="meme_humor"],
+html.typesafe-dim-personal_opinion article[data-testid="tweet"][data-typesafe-category="personal_opinion"] {
+  opacity: 0.25;
+}
+
+html.typesafe-dim-insight_tutorial article[data-testid="tweet"][data-typesafe-category="insight_tutorial"]:hover,
+html.typesafe-dim-news_update article[data-testid="tweet"][data-typesafe-category="news_update"]:hover,
+html.typesafe-dim-engagement_bait article[data-testid="tweet"][data-typesafe-category="engagement_bait"]:hover,
+html.typesafe-dim-promo_sales article[data-testid="tweet"][data-typesafe-category="promo_sales"]:hover,
+html.typesafe-dim-meme_humor article[data-testid="tweet"][data-typesafe-category="meme_humor"]:hover,
+html.typesafe-dim-personal_opinion article[data-testid="tweet"][data-typesafe-category="personal_opinion"]:hover {
+  opacity: 1;
+}
+

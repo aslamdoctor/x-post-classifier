@@ -100,4 +100,28 @@ describe("Badge Renderer", () => {
     expect(newBadge.textContent).toBe("Meme");
     expect(newBadge.classList.contains("typesafe-badge-meme")).toBe(true);
   });
+
+  it("sets data-typesafe-category attribute on tweetElement", () => {
+    const window = new Window();
+    const document = window.document;
+    const container = document.createElement("div");
+
+    container.innerHTML = `
+      <article data-testid="tweet">
+        <div data-testid="User-Name">
+          <a href="/user"><span>User</span></a>
+          <a href="/user/status/12345"><time>1h</time></a>
+        </div>
+      </article>
+    `;
+
+    const tweetEl = container.querySelector('article[data-testid="tweet"]');
+    mountBadge(document, tweetEl, {
+      category: "promo_sales",
+      label: "Promo",
+      confidence: 0.88
+    }, "12345");
+
+    expect(tweetEl.getAttribute("data-typesafe-category")).toBe("promo_sales");
+  });
 });

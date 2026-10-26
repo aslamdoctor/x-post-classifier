@@ -33,4 +33,21 @@ describe("Extension Manifest & Assets", () => {
       expect(stat.size).toBeGreaterThan(0);
     }
   });
+
+  test("action defines default_popup and default_icon pointing to valid files", () => {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+    expect(manifest.action).toBeDefined();
+    expect(manifest.action.default_popup).toBe("popup/popup.html");
+
+    const popupHtml = path.resolve(import.meta.dir, "../", manifest.action.default_popup);
+    expect(fs.existsSync(popupHtml)).toBe(true);
+    expect(fs.statSync(popupHtml).size).toBeGreaterThan(0);
+
+    expect(manifest.action.default_icon).toBeDefined();
+    for (const [size, relPath] of Object.entries(manifest.action.default_icon)) {
+      const fullPath = path.resolve(import.meta.dir, "../", relPath);
+      expect(fs.existsSync(fullPath)).toBe(true);
+      expect(fs.statSync(fullPath).size).toBeGreaterThan(0);
+    }
+  });
 });

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Post Classifier Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="typesafe-popup-container">
+    <header class="popup-header">
+      <div class="header-brand">
+        <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v4m0 4h.01"></path>
+        </svg>
+        <h1 class="header-title">Dim Posts by Category</h1>
+      </div>
+      <p class="header-subtitle">
+        Selected post types will be dimmed in your X timeline. Hover over any post to reveal.
+      </p>
+    </header>
+
+    <main class="category-list" role="group" aria-label="Post category filters">
+      <label class="category-item" for="cat-insight_tutorial">
+        <input
+          type="checkbox"
+          id="cat-insight_tutorial"
+          data-category="insight_tutorial"
+          value="insight_tutorial"
+        >
+        <span class="custom-checkbox"></span>
+        <span class="category-chip chip-insight">Insight</span>
+        <span class="category-label">Insight / Tutorials</span>
+      </label>
+
+      <label class="category-item" for="cat-news_update">
+        <input
+          type="checkbox"
+          id="cat-news_update"
+          data-category="news_update"
+          value="news_update"
+        >
+        <span class="custom-checkbox"></span>
+        <span class="category-chip chip-news">News</span>
+        <span class="category-label">News Updates</span>
+      </label>
+
+      <label class="category-item" for="cat-engagement_bait">
+        <input
+          type="checkbox"
+          id="cat-engagement_bait"
+          data-category="engagement_bait"
+          value="engagement_bait"
+        >
+        <span class="custom-checkbox"></span>
+        <span class="category-chip chip-bait">Bait</span>
+        <span class="category-label">Engagement Bait</span>
+      </label>
+
+      <label class="category-item" for="cat-promo_sales">
+        <input
+          type="checkbox"
+          id="cat-promo_sales"
+          data-category="promo_sales"
+          value="promo_sales"
+        >
+        <span class="custom-checkbox"></span>
+        <span class="category-chip chip-promo">Promo</span>
+        <span class="category-label">Promo / Sales</span>
+      </label>
+
+      <label class="category-item" for="cat-meme_humor">
+        <input
+          type="checkbox"
+          id="cat-meme_humor"
+          data-category="meme_humor"
+          value="meme_humor"
+        >
+        <span class="custom-checkbox"></span>
+        <span class="category-chip chip-meme">Meme</span>
+        <span class="category-label">Meme / Humor</span>
+      </label>
+
+      <label class="category-item" for="cat-personal_opinion">
+        <input
+          type="checkbox"
+          id="cat-personal_opinion"
+          data-category="personal_opinion"
+          value="personal_opinion"
+        >
+        <span class="custom-checkbox"></span>
+        <span class="category-chip chip-opinion">Opinion</span>
+        <span class="category-label">Personal Opinion</span>
+      </label>
+    </main>
+
+    <footer class="popup-footer">
+      <span class="footer-hint">Powered by TypeSafe Jev</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "x-post-classifier",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Automated post classification tags on X.com powered by TypeSafe Jev.",
+  "scripts": {
+    "build:config": "bun run scripts/build-config.js",
+    "build:bundle": "bun build src/content-entry.js --outfile content/content.js && cp src/badge.css content/badge.css",
+    "build": "bun run build:config && bun run build:bundle",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "happy-dom": "^20.14.6"
+  }
+}
